@@ -60,12 +60,12 @@ key_mapping keys_touch_map[] =
   {"F11",       KEY_F11},
   {"F12",       KEY_F12},
   {"NUM_LOCK",  KEY_NUM_LOCK},
-  {"NUM_INSERT",    KEY_INSERT},
-  {"NUM_HOME",      KEY_HOME},
-  {"NUM_PAGE_UP",   KEY_PAGE_UP},
-  {"NUM_DELETE",    KEY_DELETE},
-  {"NUM_END",       KEY_END},
-  {"NUM_PAGE_DOWN", KEY_PAGE_DOWN}
+  {"INSERT",    KEY_INSERT},
+  {"HOME",      KEY_HOME},
+  {"PAGE_UP",   KEY_PAGE_UP},
+  {"DELETE",    KEY_DELETE},
+  {"END",       KEY_END},
+  {"PAGE_DOWN", KEY_PAGE_DOWN}
 };
 
 /* ---------------------------------------------- */
