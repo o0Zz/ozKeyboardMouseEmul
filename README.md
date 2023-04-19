@@ -1,11 +1,12 @@
 # ozKeyboardMouseEmul
-This project rely on Teensy board to build a keyboard mouse emulator allowing to automate tests via hardware keyboard/mouse
+This project rely on Teensy board in order to build a keyboard/mouse emulator.
+It can be control via UART (Usefull for automated tests)
 
-#Prerequisite for developement
+# Prerequisite for developement
 1) Download and install arduino 1.8.19 https://downloads.arduino.cc/arduino-1.8.19-windows.exe
 2) Download and install https://www.pjrc.com/teensy/td_158/TeensyduinoInstall.exe
 
-#Quick start
+# Quick start
 ## Flash it
 1) Download and install https://www.pjrc.com/teensy/teensy.exe
 2) Start and load .hex file from this projet
@@ -14,12 +15,33 @@ This project rely on Teensy board to build a keyboard mouse emulator allowing to
 
 ## Use it.
 
-Plug an uart on the board D2(RX) and D3(TX)
-Open a terminal with parameters 9600 8N1
+Plug an UART on the Teensy 2.0 D2(RX) and D3(TX)
+Open a Serial Terminal with parameters: 9600 8N1
 Type "help"
 
-#Teensy 2.0 Pinout
+## Example
+Set the mouse pointer to absolute position 150x150
+```
+mouse 150 150
+```
+
+Send string "Hello world"
+```
+str hello world
+```
+
+Send key "ENTER"
+```
+key ENTER
+```
+
+Send "CTRL+ALT+SUPPR"
+```
+key CTRL ALT SUPPR
+```
+
+# Teensy 2.0 Pinout
 ![image](https://user-images.githubusercontent.com/3352109/233207892-8d6975df-c32d-4483-8391-dd93fbc8934f.png)
 
-#Reference
+# Reference
 https://www.pjrc.com/teensy/
