@@ -1,6 +1,5 @@
 # ozKeyboardMouseEmul
-This project rely on Teensy board in order to build a keyboard/mouse emulator.
-It can be control via UART (Usefull for automated tests)
+This project rely on Teensy board in order to build a keyboard/mouse emulator over UART (Usefull for automated tests)
 
 # Prerequisite for developement
 1) Download and install arduino 1.8.19 https://downloads.arduino.cc/arduino-1.8.19-windows.exe
