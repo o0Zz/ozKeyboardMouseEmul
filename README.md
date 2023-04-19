@@ -37,7 +37,7 @@ key ENTER
 
 Send "CTRL+ALT+SUPPR"
 ```
-key CTRL ALT SUPPR
+key CTRL ALT DELETE
 ```
 
 # Teensy 2.0 Pinout
