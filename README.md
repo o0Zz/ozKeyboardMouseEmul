@@ -19,9 +19,10 @@ Open a Serial Terminal with parameters: 9600 8N1
 Type "help"
 
 ## Example
-Set the mouse pointer to absolute position 150x150
+Set the mouse pointer to absolute position 150x150 and double click
 ```
-mouse 150 150
+mouse move 150 150
+mouse dblclick
 ```
 
 Send string "Hello world"
@@ -42,5 +43,7 @@ key CTRL ALT DELETE
 # Teensy 2.0 Pinout
 ![image](https://user-images.githubusercontent.com/3352109/233207892-8d6975df-c32d-4483-8391-dd93fbc8934f.png)
 
+
 # Reference
 https://www.pjrc.com/teensy/
+https://fr.aliexpress.com/item/1005005343794027.html

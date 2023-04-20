@@ -13,7 +13,11 @@ SoftwareSerial mySerial (rxPin, txPin);
 void displayHelp()
 {
   mySerial.println("Commands:");
-  mySerial.println("    mouse <X> <Y>");
+  mySerial.println("    mouse move <X> <Y>");
+  mySerial.println("    mouse click");
+  mySerial.println("    mouse dblclick");
+  mySerial.println("    mouse press");
+  mySerial.println("    mouse release");
   mySerial.println("    key <KEYS>");
   mySerial.println("    str <STRING>");
   mySerial.println("");
@@ -106,7 +110,7 @@ void setKeyboard(char **keys, int len)
 
 /* ---------------------------------------------- */
 
-void setMouse(long x, long y)
+void setMousePtr(long x, long y)
 {
   //Make sure mouse is top left corner
   for (int i=0; i<64; i++) //64*128=8192 => Handle screen lower than 8192x8192
@@ -179,14 +183,50 @@ void handleCommand(char *str)
   }
   else if (strcmp(str_splitted[0], "mouse") == 0)
   {
-    if (strCount < 3)
+    if (strCount < 2)
     {
       mySerial.println("ERR=2");
       return;
     }
-    
-    setMouse(atol(str_splitted[1]), atol(str_splitted[2]));
-    mySerial.println("OK");
+      
+    if (strcmp(str_splitted[1], "move") == 0)
+    {
+      if (strCount < 4)
+      {
+        mySerial.println("ERR=2");
+        return;
+      }
+      
+      setMousePtr(atol(str_splitted[2]), atol(str_splitted[3]));
+      mySerial.println("OK");
+    }
+    else if (strcmp(str_splitted[1], "click") == 0)
+    {
+      Mouse.click();
+      mySerial.println("OK");
+    }
+    else if (strcmp(str_splitted[1], "dblclick") == 0)
+    {
+      Mouse.click();
+      delay(100);
+      Mouse.click();
+      mySerial.println("OK");
+    }
+    else if (strcmp(str_splitted[1], "press") == 0)
+    {
+      Mouse.press();
+      mySerial.println("OK");
+    }
+    else if (strcmp(str_splitted[1], "release") == 0)
+    {
+      Mouse.release();
+      mySerial.println("OK");
+    }
+    else
+    {
+      mySerial.println("ERR=4");
+      mySerial.println(str_splitted[1]);
+    }  
   }
   else if (strcmp(str_splitted[0], "version") == 0)
   {
