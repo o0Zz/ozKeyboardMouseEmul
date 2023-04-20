@@ -2,6 +2,7 @@
 
 const byte rxPin = 2; //D2
 const byte txPin = 3; //D3
+bool sfEchoEnabled = false;
 
 SoftwareSerial mySerial (rxPin, txPin);
 
@@ -13,13 +14,14 @@ SoftwareSerial mySerial (rxPin, txPin);
 void displayHelp()
 {
   mySerial.println("Commands:");
-  mySerial.println("    mouse move <X> <Y>");
-  mySerial.println("    mouse click");
-  mySerial.println("    mouse dblclick");
-  mySerial.println("    mouse press");
-  mySerial.println("    mouse release");
-  mySerial.println("    key <KEYS>");
-  mySerial.println("    str <STRING>");
+  mySerial.println("    mouse move <X> <Y>: Move the mouse to absolute position");
+  mySerial.println("    mouse click       : Click on the mouse");
+  mySerial.println("    mouse dblclick    : Double click on the mouse");
+  mySerial.println("    mouse press       : Press mouse button");
+  mySerial.println("    mouse release     : Release mouse button");
+  mySerial.println("    key <KEYS>        : Send specific keys on the keyboard");
+  mySerial.println("    str <STRING>      : Send string over keyboard");
+  mySerial.println("    echo              : Toogle echo on UART on/off");
   mySerial.println("");
   mySerial.println("KEYS: Space separated (Max 8), it can be:");
   mySerial.println("    MODIFIERS: CTRL, SHIFT, ALT");
@@ -236,6 +238,10 @@ void handleCommand(char *str)
   {
     displayHelp();
   }
+  else if (strcmp(str_splitted[0], "echo") == 0)
+  {
+    sfEchoEnabled = !sfEchoEnabled;
+  }
   else
   {
     mySerial.println("ERR=3");
@@ -266,9 +272,10 @@ void loop()
   if (mySerial.available() > 0)
   {
     sBuffer[sBufferCount] = mySerial.read();
-    mySerial.write(sBuffer[sBufferCount]);
-    //mySerial.println(sBuffer[sBufferCount], HEX);
-    
+
+    if (sfEchoEnabled)
+      mySerial.write(sBuffer[sBufferCount]);
+
     if (sBuffer[sBufferCount] == '\r' || sBuffer[sBufferCount] == '\n')
     {
       sBuffer[sBufferCount] = '\0';
