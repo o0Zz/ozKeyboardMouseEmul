@@ -5,7 +5,15 @@ This project rely on Teensy board in order to build a keyboard/mouse emulator ov
 1) Download and install arduino 1.8.19 https://downloads.arduino.cc/arduino-1.8.19-windows.exe
 2) Download and install https://www.pjrc.com/teensy/td_158/TeensyduinoInstall.exe
 
-# Quick start
+# Development
+1) Open the ino project
+2) In arduino IDE
+ - Tools > Board > Teensyduino > Teensy 2.0
+ - Tools > USB Type > Keyboard + Mouse + Joystick
+3) Build & Run
+
+# Getting start
+
 ## Flash it
 1) Download and install https://www.pjrc.com/teensy/teensy.exe
 2) Start and load .hex file from this projet
@@ -13,7 +21,6 @@ This project rely on Teensy board in order to build a keyboard/mouse emulator ov
 4) Done the board is flash.
 
 ## Use it.
-
 Plug an UART on the Teensy 2.0 D2(RX) and D3(TX)
 Open a Serial Terminal with parameters: 9600 8N1
 Type "help"
