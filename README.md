@@ -21,7 +21,7 @@ This project rely on Teensy board in order to build a keyboard/mouse emulator ov
 4) Done the board is flash.
 
 ## Use it.
-Plug an UART on the Teensy 2.0 D2(RX) and D3(TX)
+Plug an UART on the Teensy 2.0 B2(RX) and B3(TX)
 Open a Serial Terminal with parameters: 9600 8N1
 Type "help"
 

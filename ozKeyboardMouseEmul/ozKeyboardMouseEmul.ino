@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 
-const byte rxPin = 2; //D2
-const byte txPin = 3; //D3
+const byte rxPin = 2; //B2
+const byte txPin = 3; //B3
 bool sfEchoEnabled = false;
 
 SoftwareSerial mySerial (rxPin, txPin);
